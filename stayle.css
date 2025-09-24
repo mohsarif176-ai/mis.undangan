@@ -190,4 +190,15 @@ main:focus{ outline:none; }
 .map-placeholder{
   margin: 12px 0 18px;
   border-radius: 8px;
-  padding: 28px; 
+  padding: 28px;
+  background: linear-gradient(180deg,#f7f6f4,#f2efec);
+  color: #6b6764;
+  text-align:center;
+}
+
+/* Responsive */
+@media (max-width:420px){
+  .names{ font-size: 36px; }
+  .landing-card{ padding: 24px; }
+  .invitation-img{ max-width: 420px; }
+}
