@@ -2,126 +2,171 @@
 <html lang="id">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Undangan - Saepul & Ayu</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Undangan Pernikahan — Saepul & Ayu</title>
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #fbf7f3;
+      --card:#ffffff;
+      --accent:#b08957; /* gold-ish */
+      --muted:#81756b;
+      --max-width:900px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:var(--bg);font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
+    /* page container */
+    .invitation{
+      max-width:var(--max-width);
+      margin:24px auto;
+      background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.95));
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow:0 20px 40px rgba(31,31,31,0.08);
+    }
+
+    header{padding:56px 28px 12px;text-align:center;position:relative;background:transparent}
+    /* decorative floral (inline SVG) positioned */
+    header .floral{
+      position:absolute;top:18px;left:18px;opacity:0.7;width:120px;height:120px;pointer-events:none}
+    header .floral.right{left:auto;right:18px;transform:rotate(180deg)}
+
+    .kecil{font-size:14px;color:var(--muted);letter-spacing:0.12em}
+    .title{font-family:'Playfair Display', serif;font-size:20px;color:var(--muted);margin:14px 0}
+    .names{font-family:'Great Vibes', cursive;color:var(--accent);font-size:56px;margin:8px 0;line-height:0.9;text-shadow:0 2px 0 rgba(0,0,0,0.03)}
+    .date{font-family:'Playfair Display', serif;color:var(--muted);margin-top:6px}
+
+    /* image sections */
+    .hero{
+      display:block;width:100%;height:420px;object-fit:cover;display:block
+    }
+
+    .section{padding:44px 36px;text-align:center;background:var(--card)}
+    .parents{font-family:'Playfair Display', serif;color:var(--accent);font-size:30px;margin:10px 0}
+    .sub{font-size:13px;color:var(--muted);margin-top:6px}
+    .amp{font-size:28px;margin:18px 0;color:var(--muted)}
+
+    .decor-line{height:1px;background:linear-gradient(90deg, transparent, #dcd6d1, transparent);margin:28px 0}
+
+    /* info card */
+    .info{
+      padding:34px 36px;background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(249,247,245,0.95));
+      text-align:center
+    }
+    .arabic{font-family: 'Playfair Display', serif;font-size:22px;color:#222}
+    .intro{max-width:720px;margin:12px auto;color:var(--muted);line-height:1.6}
+    .cta{display:flex;gap:20px;align-items:center;justify-content:center;margin-top:18px;flex-wrap:wrap}
+    .btn{background:var(--accent);color:#fff;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:600;box-shadow:0 8px 20px rgba(160,120,70,0.12);}
+
+    .time-grid{display:flex;justify-content:center;gap:28px;align-items:center;margin-top:16px}
+    .time-grid .col{min-width:120px}
+    .time-grid .big{font-family:'Playfair Display', serif;font-size:40px;color:#222}
+    .time-grid .muted{font-size:12px;color:var(--muted);letter-spacing:0.06em}
+
+    .map-note{font-size:13px;color:var(--muted);margin-top:8px}
+
+    .footer{padding:34px 24px;text-align:center}
+    .heart{font-size:22px;color:var(--muted);margin:14px 0}
+    .thanks{font-family:'Great Vibes',cursive;font-size:36px;color:var(--accent);margin:8px 0}
+    .terima{color:var(--muted);letter-spacing:0.12em}
+
+    /* responsive */
+    @media (max-width:720px){
+      .names{font-size:40px}
+      .hero{height:320px}
+      .section{padding:28px}
+      .info{padding:26px 18px}
+      .time-grid{flex-direction:column}
+    }
+
+    /* small polish */
+    .shadow-card{box-shadow:0 10px 30px rgba(17,17,17,0.06);border-radius:10px;padding:18px}
+  </style>
 </head>
 <body>
+  <main class="invitation" role="main">
+    <header>
+      <!-- inline floral SVGs to mimic the design -->
+      <svg class="floral" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+        <g fill="none" stroke="#d9d2c8" stroke-width="2">
+          <path d="M10 160 C40 120, 60 120, 90 150"/>
+          <path d="M30 120 C60 80, 120 70, 150 100"/>
+          <circle cx="30" cy="30" r="8" fill="#efe8e0" stroke="none"/>
+        </g>
+      </svg>
+      <svg class="floral right" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+        <g fill="none" stroke="#d9d2c8" stroke-width="2">
+          <path d="M10 160 C40 120, 60 120, 90 150"/>
+          <path d="M30 120 C60 80, 120 70, 150 100"/>
+          <circle cx="30" cy="30" r="8" fill="#efe8e0" stroke="none"/>
+        </g>
+      </svg>
 
-  <!-- LANDING / JENDELA AWAL -->
-  <div id="landing" role="dialog" aria-modal="true">
-    <div class="landing-card">
-      <h3 class="small-title">The Wedding</h3>
-      <h1 class="names">Saepul &amp; Ayu Suryanah</h1>
-      <p class="date">Minggu, 28 September 2025</p>
-
-      <div class="landing-actions">
-        <button id="openBtn" class="btn primary">Buka Undangan</button>
-        <button id="viewPreview" class="btn ghost">Lihat Pratinjau</button>
-      </div>
-
-      <p class="note">Klik "Buka Undangan" untuk melihat seluruh undangan.</p>
-    </div>
-  </div>
-
-  <!-- MAIN (ISI UNDANGAN) -->
-  <main id="main" class="hidden" tabindex="-1">
-    <header class="topbar">
-      <button id="backBtn" class="icon-btn" title="Kembali ke Pembuka">⟵</button>
-      <div class="top-title">Saepul &amp; Ayu</div>
-      <button id="openMapBtn" class="map-btn">Buka Denah Lokasi</button>
+      <div class="kecil">The wedding</div>
+      <h1 class="names" aria-label="Nama pengantin">Saepul &amp; Ayu Suryanah</h1>
+      <div class="date">Minggu, 28 September 2025</div>
     </header>
 
-    <section class="invitation-wrap">
-      <!-- GANTI PATH GAMBAR SESUAI NAMA FILE ANDA -->
-      <img src="img/undangan.png" alt="Undangan Saepul & Ayu (gambar panjang)" class="invitation-img">
+    <!-- top hero photo: replace file with your image named hero-top.jpg inside an assets folder -->
+    <img src="assets/hero-top.jpg" alt="Pasangan berjalan" class="hero" loading="lazy">
+
+    <section class="section">
+      <div class="parents">Saepul Subur / Jawa</div>
+      <div class="sub">Putra dari Bpk. H. Sanusi dan Ibu Sartiah "Rancaillat"</div>
+
+      <div class="amp">&amp;</div>
+
+      <div class="parents">Ayu Suryanah / Ayu</div>
+      <div class="sub">Putra dari Bpk. Misra (Alm) dan Ibu Kayah "Gerobogan"</div>
     </section>
 
-    <footer class="footer-note">
-      <p>Mohon doa dan restu. &nbsp;•&nbsp; Terima kasih.</p>
+    <!-- bottom hero photo -->
+    <img src="assets/hero-bottom.jpg" alt="Pasangan" class="hero" loading="lazy">
+
+    <section class="info">
+      <div class="arabic">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+      <p class="intro">Assalamu'alaikum Wr. Wb<br>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan resepsi pernikahan kami yang insya Allah akan dilaksanakan pada:</p>
+
+      <div class="shadow-card">
+        <div style="font-size:12px;color:var(--muted);">AKAD &amp; RESEPSI</div>
+        <div class="time-grid">
+          <div class="col">
+            <div class="muted">MINGGU, <br>SEPTEMBER 2025</div>
+          </div>
+          <div class="col">
+            <div class="big">28</div>
+          </div>
+          <div class="col">
+            <div class="muted">09.00<br>S/D SELESAI</div>
+          </div>
+        </div>
+        <div class="map-note">Di kediaman mempelai Wanita<br>Kp. Gerobogan RT. 03 Rw. 03 Des. Sukamulya Kec. Sukamulya Kab. Tangerang - Banten</div>
+
+        <div class="cta">
+          <!-- replace the href with actual google maps link to the address -->
+          <a class="btn" href="#" onclick="openMap(event)">Buka Denah Lokasi</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="decor-line" aria-hidden></div>
+
+    <footer class="footer">
+      <div class="heart">♥</div>
+      <div class="thanks">Mohon Doa Dan Restu</div>
+      <div class="terima">Terima Kasih.</div>
     </footer>
   </main>
 
-  <!-- OPTIONAL: Modal Denah (contoh sederhana) -->
-  <div id="mapModal" class="modal hidden" role="dialog" aria-modal="true" aria-label="Denah lokasi">
-    <div class="modal-card">
-      <button class="modal-close" id="closeMap">✕</button>
-      <h4>Denah Lokasi</h4>
-      <p>Alamat: Kp. Gerobogan RT.03 RW.03 Desa Sukamulya, Kec. Sukamulya, Kab. Tangerang - Banten</p>
-      <!-- Jika ingin menanamkan Google Maps, ganti kode berikut dengan iframe maps Anda -->
-      <div class="map-placeholder">
-        <p>Tempat untuk menaruh peta (iframe Google Maps).</p>
-      </div>
-      <a href="https://www.google.com/maps" target="_blank" rel="noopener" class="btn primary">Buka Google Maps</a>
-    </div>
-  </div>
-
-<script>
-  // Elemen
-  const landing = document.getElementById('landing');
-  const openBtn = document.getElementById('openBtn');
-  const viewPreview = document.getElementById('viewPreview');
-  const main = document.getElementById('main');
-  const backBtn = document.getElementById('backBtn');
-
-  const mapModal = document.getElementById('mapModal');
-  const openMapBtn = document.getElementById('openMapBtn');
-  const closeMap = document.getElementById('closeMap');
-
-  // Buka undangan (sambil sembunyikan landing)
-  openBtn.addEventListener('click', () => {
-    landing.classList.add('hidden');
-    main.classList.remove('hidden');
-    // fokus ke konten utama untuk aksesibilitas
-    main.focus();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  // Pratinjau sederhana (scroll ke gambar tanpa tutup landing)
-  viewPreview.addEventListener('click', () => {
-    // buka main sekilas (overlay) tapi tetap biarkan landing visible
-    const img = document.querySelector('.invitation-img');
-    if (img) {
-      const w = window.open('', '_blank');
-      w.document.write('<title>Pratinjau Undangan</title>');
-      w.document.write('<meta name="viewport" content="width=device-width,initial-scale=1">');
-      w.document.write('<style>body{margin:0}img{display:block;width:100%;height:auto}</style>');
-      w.document.write('<img src="' + img.src + '" alt="Pratinjau Undangan">');
-      w.document.close();
+  <script>
+    function openMap(e){
+      e.preventDefault();
+      // TODO: ganti URL di bawah dengan link Google Maps lokasi Anda
+      const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=Kp.+Gerobogan+Tangerang';
+      window.open(mapsUrl, '_blank');
     }
-  });
-
-  // Kembali ke landing
-  backBtn.addEventListener('click', () => {
-    main.classList.add('hidden');
-    landing.classList.remove('hidden');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  // Denah lokasi modal
-  openMapBtn.addEventListener('click', () => {
-    mapModal.classList.remove('hidden');
-  });
-  closeMap.addEventListener('click', () => {
-    mapModal.classList.add('hidden');
-  });
-
-  // Tutup modal saat klik di luar
-  mapModal.addEventListener('click', (e) => {
-    if (e.target === mapModal) mapModal.classList.add('hidden');
-  });
-
-  // Keyboard: Esc untuk tutup modal
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      mapModal.classList.add('hidden');
-    }
-  });
-</script>
+  </script>
 </body>
 </html>
