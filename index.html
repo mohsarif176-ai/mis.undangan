@@ -1,165 +1,121 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NSP International</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="font-sans">
-    <!-- Header -->
-    <header class="bg-red-600 text-white">
-      <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        <h1 class="text-lg font-bold">NSP <span class="font-normal">International</span></h1>
-        <nav>
-          <ul class="flex space-x-6 font-medium">
-            <li><a href="#" class="hover:text-yellow-300">Home</a></li>
-            <li><a href="#about" class="hover:text-yellow-300">About</a></li>
-            <li><a href="#program" class="hover:text-yellow-300">Program</a></li>
-            <li><a href="#tutor" class="hover:text-yellow-300">Tutor</a></li>
-            <li><a href="#daftar" class="hover:text-yellow-300">Daftar</a></li>
-            <li><a href="#kontak" class="hover:text-yellow-300">Kontak</a></li>
-            <li><a href="#faq" class="hover:text-yellow-300">FAQ</a></li>
-          </ul>
-        </nav>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Pernikahan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Jendela Awal ===== -->
+  <section id="landing">
+    <div class="landing-content">
+      <h2>Undangan Pernikahan</h2>
+      <h1>Saepul & Ayu</h1>
+      <p>Minggu, 28 September 2025</p>
+      <button id="openBtn">Buka Undangan</button>
+    </div>
+  </section>
+
+  <!-- ===== Isi Undangan ===== -->
+  <section id="main" class="hidden">
+    <div class="content">
+      <h2>The Wedding of</h2>
+      <h1>Saepul & Ayu Suryanah</h1>
+      <p>Minggu, 28 September 2025</p>
+
+      <div class="photo">
+        <img src="Tanpa judul (800 x 2400 piksel) (1).png" alt="Foto Pasangan">
       </div>
-    </header>
 
-    <!-- Hero -->
-    <section class="bg-red-600 text-white">
-      <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h2 class="text-3xl font-bold text-lime-300">NSP <span class="text-white">International</span></h2>
-          <p class="italic">“For Better Future”</p>
-          <div class="flex items-center mt-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-300 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" /></svg>
-            <p class="text-sm">Jl. raya Taktakan Perum Pondok Taktakan Indah Blok BE No. 14 dan 15 Drangong Kota Serang Banten 42162</p>
-          </div>
-          <div class="mt-6 flex gap-4">
-            <a href="#" class="px-5 py-2 bg-yellow-300 text-black font-bold rounded">Daftar Sekarang</a>
-            <a href="#" class="px-5 py-2 bg-emerald-600 text-white font-bold rounded">Hubungi Kami</a>
-          </div>
-        </div>
-        <div class="flex justify-center">
-          <div class="relative">
-            <div class="absolute -z-10 top-0 right-0 w-48 h-48 bg-yellow-300 rounded-full"></div>
+      <p>Assalamu’alaikum Wr. Wb<br>
+      Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan resepsi pernikahan kami
+      yang insya Allah akan dilaksanakan pada:</p>
 
-            <img src="/images.webp" alt="Student" class="rounded-lg" />
-          </div>
-        </div>
-      </div>
-    </section>
+      <h3>Akad & Resepsi</h3>
+      <p>Minggu, 28 September 2025<br>
+      Pukul 09.00 WIB s/d Selesai<br>
+      Di kediaman mempelai wanita</p>
 
-    <!-- Tentang Kami -->
-    <section id="about" class="bg-yellow-300 py-12">
-      <div class="max-w-5xl mx-auto text-center px-6">
-        <h2 class="text-2xl font-bold text-red-600 mb-4">Tentang Kami</h2>
-        <p class="text-gray-800">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</p>
-      </div>
-    </section>
+      <p>Kp. Gerobogan RT.03 RW.03 Desa Sukamulya<br>
+      Kec. Sukamulya Kab. Tangerang - Banten</p>
 
-    <!-- Kenapa Memilih Kami -->
-    <section class="py-12 bg-gray-50">
-      <div class="max-w-6xl mx-auto text-center px-6">
-        <h2 class="text-2xl font-bold text-red-600 mb-8">Kenapa memilih Kami?</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div>
-            <div class="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">✔</div>
-            <p class="mt-2 font-semibold">Terakreditasi A</p>
-          </div>
-          <div>
-            <div class="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">📜</div>
-            <p class="mt-2 font-semibold">Sertifikat</p>
-          </div>
-          <div>
-            <div class="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">🏫</div>
-            <p class="mt-2 font-semibold">Fasilitas</p>
-          </div>
-          <div>
-            <div class="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">💵</div>
-            <p class="mt-2 font-semibold text-emerald-600">Biaya Terjangkau</p>
-          </div>
-        </div>
-        <a href="#" class="mt-6 inline-block text-gray-500 underline">Selengkapnya</a>
-      </div>
-    </section>
+      <p>Mohon doa dan restu<br>Terima kasih</p>
+    </div>
+  </section>
 
-    <!-- Fasilitas -->
-    <section class="py-12">
-      <div class="max-w-6xl mx-auto px-6 text-center">
-        <h2 class="text-2xl font-bold text-sky-700 mb-8">Fasilitas</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="p-6 border rounded-lg shadow-sm">
-            <div class="h-32 bg-gray-200 mb-4"></div>
-            <h3 class="font-semibold">Fasilitas 1</h3>
-            <p class="text-sm text-gray-600">Lorem ipsum is simply dummy text...</p>
-          </div>
-          <div class="p-6 border rounded-lg shadow-sm">
-            <div class="h-32 bg-gray-200 mb-4"></div>
-            <h3 class="font-semibold">Fasilitas 2</h3>
-            <p class="text-sm text-gray-600">Lorem ipsum is simply dummy text...</p>
-          </div>
-          <div class="p-6 border rounded-lg shadow-sm">
-            <div class="h-32 bg-gray-200 mb-4"></div>
-            <h3 class="font-semibold">Fasilitas 3</h3>
-            <p class="text-sm text-gray-600">Lorem ipsum is simply dummy text...</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<script>
+  // Tombol pembuka
+  document.getElementById('openBtn').addEventListener('click', () => {
+    document.getElementById('landing').classList.add('hidden');
+    document.getElementById('main').classList.remove('hidden');
+  });
+</script>
 
-    <!-- Testimoni -->
-    <section class="bg-red-600 text-white py-12">
-      <div class="max-w-6xl mx-auto px-6 text-center">
-        <h2 class="text-2xl font-bold mb-4">Testimoni</h2>
-        <p class="mb-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="bg-white text-black p-4 rounded-lg shadow">
-            <p class="text-sm italic">“Lorem ipsum is simply dummy text...”</p>
-            <p class="mt-2 text-sm font-semibold">– Aditya Rahman, Pandeglang</p>
-          </div>
-          <div class="bg-white text-black p-4 rounded-lg shadow">
-            <p class="text-sm italic">“Lorem ipsum is simply dummy text...”</p>
-            <p class="mt-2 text-sm font-semibold">– Aditya Rahman, Pandeglang</p>
-          </div>
-          <div class="bg-white text-black p-4 rounded-lg shadow">
-            <p class="text-sm italic">“Lorem ipsum is simply dummy text...”</p>
-            <p class="mt-2 text-sm font-semibold">– Aditya Rahman, Pandeglang</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Kontak -->
-    <section id="kontak" class="py-12 bg-gray-50">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-2xl font-bold text-sky-700 text-center mb-8">Kontak</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-          <div>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1983.2220149275709!2d106.41986030475464!3d-6.205010809316932!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e4203e9f8c11e7b%3A0x4ac748bdb0718b70!2sSMK%20AL-BADAR!5e0!3m2!1sid!2sid!4v1758692256586!5m2!1sid!2sid"
-              width="600"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="text-lg font-bold text-red-600 mb-4">Kirim Kami Pesan</h3>
-            <form class="space-y-4">
-              <input type="text" placeholder="Nama Anda" class="w-full border p-2 rounded" />
-              <input type="text" placeholder="Nomor Telepon" class="w-full border p-2 rounded" />
-              <textarea rows="4" placeholder="Tulis pesan di sini..." class="w-full border p-2 rounded"></textarea>
-              <button class="px-6 py-2 bg-blue-500 text-white font-semibold rounded">Kirim</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-red-600 text-white py-4 text-center text-sm">© 2025 NSP International. All rights reserved</footer>
-  </body>
+</body>
 </html>
+🟠 style.css
+css
+Salin kode
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f8f4;
+  color: #333;
+}
+
+/* ===== Jendela Awal ===== */
+#landing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: url('Tanpa judul (800 x 2400 piksel) (1).png') center/cover no-repeat;
+  text-align: center;
+  backdrop-filter: brightness(0.6);
+}
+.landing-content {
+  background: rgba(255,255,255,0.85);
+  padding: 30px;
+  border-radius: 15px;
+}
+#landing h1 {
+  font-size: 2.5rem;
+  margin: 10px 0;
+  color: #a87d4f;
+}
+#landing button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #a87d4f;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#landing button:hover {
+  background-color: #8c663c;
+}
+
+/* ===== Isi Undangan ===== */
+.hidden { display: none; }
+#main {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+#main h1 {
+  color: #a87d4f;
+  margin-bottom: 5px;
+}
+.photo img {
+  width: 100%;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+.content p {
+  line-height: 1.6;
+  margin: 10px 0;
+}
