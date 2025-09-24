@@ -46,7 +46,7 @@ h1,h2,h3{font-family:'Playfair Display',serif}
 .floral-right{top:0;right:0;transform:rotate(8deg)}
 
 /* ===== Photo ===== */
-.photo-img{
+.photo-git addimg{
   width:100%;
   height:auto;
   display:block;
@@ -64,7 +64,7 @@ h1,h2,h3{font-family:'Playfair Display',serif}
 }
 .name{
   font-size:26px;
-  color:#b7924d;
+  color: #b7925b;d;
   margin-bottom:6px;
 }
 .and{
