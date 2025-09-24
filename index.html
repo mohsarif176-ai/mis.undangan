@@ -8,11 +8,11 @@
 </head>
 <body>
 
-  <!-- ===== Jendela Awal ===== -->
+  <!-- ===== Halaman Awal ===== -->
   <section id="landing">
-    <div class="landing-content">
-      <h2>Undangan Pernikahan</h2>
-      <h1>Saepul & Ayu</h1>
+    <div class="landing-box">
+      <h2>The Wedding of</h2>
+      <h1>Saepul & Ayu Suryanah</h1>
       <p>Minggu, 28 September 2025</p>
       <button id="openBtn">Buka Undangan</button>
     </div>
@@ -20,102 +20,19 @@
 
   <!-- ===== Isi Undangan ===== -->
   <section id="main" class="hidden">
-    <div class="content">
-      <h2>The Wedding of</h2>
-      <h1>Saepul & Ayu Suryanah</h1>
-      <p>Minggu, 28 September 2025</p>
-
-      <div class="photo">
-        <img src="Tanpa judul (800 x 2400 piksel) (1).png" alt="Foto Pasangan">
-      </div>
-
-      <p>Assalamu’alaikum Wr. Wb<br>
-      Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan resepsi pernikahan kami
-      yang insya Allah akan dilaksanakan pada:</p>
-
-      <h3>Akad & Resepsi</h3>
-      <p>Minggu, 28 September 2025<br>
-      Pukul 09.00 WIB s/d Selesai<br>
-      Di kediaman mempelai wanita</p>
-
-      <p>Kp. Gerobogan RT.03 RW.03 Desa Sukamulya<br>
-      Kec. Sukamulya Kab. Tangerang - Banten</p>
-
-      <p>Mohon doa dan restu<br>Terima kasih</p>
+    <div class="scroll-container">
+      <img src="img/undangan.png" alt="Undangan Pernikahan" class="undangan-img">
     </div>
   </section>
 
 <script>
-  // Tombol pembuka
+  // Fungsi tombol pembuka
   document.getElementById('openBtn').addEventListener('click', () => {
     document.getElementById('landing').classList.add('hidden');
     document.getElementById('main').classList.remove('hidden');
+    window.scrollTo(0, 0);
   });
 </script>
 
 </body>
 </html>
-🟠 style.css
-css
-Salin kode
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f9f8f4;
-  color: #333;
-}
-
-/* ===== Jendela Awal ===== */
-#landing {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background: url('Tanpa judul (800 x 2400 piksel) (1).png') center/cover no-repeat;
-  text-align: center;
-  backdrop-filter: brightness(0.6);
-}
-.landing-content {
-  background: rgba(255,255,255,0.85);
-  padding: 30px;
-  border-radius: 15px;
-}
-#landing h1 {
-  font-size: 2.5rem;
-  margin: 10px 0;
-  color: #a87d4f;
-}
-#landing button {
-  padding: 12px 25px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  background-color: #a87d4f;
-  color: #fff;
-  cursor: pointer;
-  transition: 0.3s;
-}
-#landing button:hover {
-  background-color: #8c663c;
-}
-
-/* ===== Isi Undangan ===== */
-.hidden { display: none; }
-#main {
-  padding: 20px;
-  max-width: 600px;
-  margin: 0 auto;
-}
-#main h1 {
-  color: #a87d4f;
-  margin-bottom: 5px;
-}
-.photo img {
-  width: 100%;
-  border-radius: 10px;
-  margin: 20px 0;
-}
-.content p {
-  line-height: 1.6;
-  margin: 10px 0;
-}
