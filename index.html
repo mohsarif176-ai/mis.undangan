@@ -80,108 +80,115 @@
   <img src="img/icon-map.png" alt="Ikon peta"> Buka Denah Lokasi
     </a>
   </section>
+  
   <!doctype html>
 <html lang="id">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Countdown Otomatis — 24 Sep 2025 23:00 WIB → 28 Sep 2025 08:00 WIB</title>
+<title>Countdown — Hari Ini → 28 Sep 2025 08:00 WIB</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#f3f6fb;
-    --card:#ffffff;
-    --accent:#1657ff;
-    --accent-2:#00bfa6;
-    --muted:#6b7280;
-    --glass: rgba(255,255,255,0.7);
-    --danger:#ef4444;
+    --bg: #f4f7ff;
+    --card: #ffffff;
+    --accent: #1e6fff;
+    --accent-2: #06b6d4;
+    --muted: #6b7280;
+    --glass: rgba(255,255,255,0.6);
   }
-  *{box-sizing:border-box}
-  body{
+  * { box-sizing: border-box; }
+  body {
     margin:0;
-    padding:32px;
-    background: linear-gradient(180deg,#eef2ff 0%,#f7fafc 100%);
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    min-height:100vh;
     display:flex;
     align-items:center;
     justify-content:center;
-    min-height:100vh;
-    color:#0f172a;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    background: linear-gradient(180deg,#eef6ff 0%, #f8fafc 100%);
+    padding:28px;
+    color:#071025;
   }
 
-  /* Container kotak */
+  /* Kotak persegi panjang sedang */
   .card {
     width:100%;
-    max-width:820px;
-    background:var(--card);
+    max-width:760px;
+    background: var(--card);
     border-radius:14px;
-    box-shadow: 0 10px 30px rgba(12,20,50,0.08);
+    box-shadow: 0 12px 36px rgba(6,18,46,0.08);
     padding:20px;
-    display:grid;
-    grid-template-columns: 1fr 320px;
+    display:flex;
     gap:18px;
+    align-items:stretch;
   }
 
-  /* Kiri: info utama */
-  .main {
-    padding:12px;
+  /* Kolom kiri besar (info waktu) */
+  .left {
+    flex:1 1 0;
     display:flex;
     flex-direction:column;
     gap:12px;
   }
-  h1 {
-    margin:0;
-    font-size:18px;
-    font-weight:800;
-    letter-spacing:0.2px;
+  .title {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
   }
-  p.lead {
-    margin:0;
-    color:var(--muted);
-    font-size:13px;
-  }
+  .title h2 { margin:0; font-size:18px; font-weight:800; letter-spacing:0.3px; }
+  .subtitle { font-size:13px; color:var(--muted); margin:0; }
 
-  /* kotak waktu besar */
-  .time-box {
+  .time-grid {
     display:flex;
     gap:10px;
     align-items:center;
+    margin-top:6px;
+    flex-wrap:wrap;
   }
-  .time-segment {
-    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+
+  .segment {
+    min-width:90px;
+    background: linear-gradient(180deg,#ffffff,#fbfdff);
     border-radius:10px;
-    padding:12px 14px;
-    min-width:84px;
+    padding:12px 10px;
     text-align:center;
-    box-shadow: 0 6px 18px rgba(6,10,30,0.06);
-    border:1px solid rgba(13,37,80,0.03);
+    box-shadow: 0 8px 24px rgba(6,18,46,0.04);
+    border: 1px solid rgba(8,20,50,0.03);
   }
-  .time-value {
+  .segment .val {
     font-size:22px;
     font-weight:800;
     letter-spacing:0.6px;
   }
-  .time-label {
+  .segment .lbl {
+    margin-top:6px;
     font-size:12px;
     color:var(--muted);
-    margin-top:6px;
     font-weight:600;
   }
 
-  /* kanan: progress + detail */
-  .side {
-    padding:12px;
+  .info-row {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+  }
+  .small { font-size:13px; color:var(--muted); }
+
+  /* Kolom kanan (progress + dates) */
+  .right {
+    width:300px;
+    max-width:300px;
     display:flex;
     flex-direction:column;
     gap:12px;
-    align-items:stretch;
   }
 
   .progress-wrap {
-    background:#eef4ff;
-    border-radius:10px;
     height:18px;
+    background: #eef6ff;
+    border-radius:12px;
     overflow:hidden;
     position:relative;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
@@ -189,239 +196,28 @@
   .progress {
     height:100%;
     width:0%;
-    background: linear-gradient(90deg,var(--accent), #57a6ff);
-    transition: width 600ms linear;
+    background: linear-gradient(90deg,var(--accent), var(--accent-2));
+    transition: width 500ms linear;
   }
-  .percent {
-    font-weight:800;
-    font-size:18px;
-    text-align:right;
-    color:var(--accent);
-  }
-  .meta {
-    font-size:13px;
-    color:var(--muted);
-  }
+  .percent { text-align:right; font-weight:800; color:var(--accent); font-size:16px; }
 
-  /* detail tanggal kotak */
-  .dates {
-    display:flex;
-    gap:8px;
-    flex-direction:column;
-  }
-  .date-item {
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-    align-items:center;
-    background: linear-gradient(180deg,#fbfdff 0%, #fff 100%);
-    border-radius:8px;
+  .date-box {
+    background: linear-gradient(180deg,#fcfeff,#ffffff);
+    border-radius:10px;
     padding:10px;
-    border:1px solid rgba(10,20,50,0.04);
+    border:1px solid rgba(10,20,40,0.04);
+    display:flex;
+    flex-direction:column;
+    gap:8px;
   }
-  .date-label { font-size:13px; color:var(--muted); font-weight:600; }
-  .date-value { font-size:13px; font-weight:700; }
+  .date-row { display:flex; justify-content:space-between; align-items:center; }
+  .dlabel { font-size:13px; color:var(--muted); font-weight:700; }
+  .dval { font-size:13px; font-weight:800; }
 
-  /* footer kecil */
-  .footer { font-size:12px; color:var(--muted); text-align:center; margin-top:6px; }
-
-  /* Responsive: stack */
-  @media (max-width:880px){
-    .card { grid-template-columns: 1fr; padding:16px; }
-    .side { order:2; }
-  }
-</style>
-</head>
-<body>
-
-  <div class="card" role="region" aria-label="Countdown dari 24 Sep 2025 23:00 WIB sampai 28 Sep 2025 08:00 WIB">
-    <div class="main">
-      <h1>Countdown Otomatis — Event Waktu Bergerak</h1>
-      <p class="lead">Menampilkan waktu yang bergerak otomatis — sisa waktu hingga akhir event. Waktu diberi label <strong>WIB (UTC+7)</strong>.</p>
-
-      <div class="time-box" aria-hidden="false">
-        <div class="time-segment" aria-live="polite">
-          <div class="time-value" id="days">--</div>
-          <div class="time-label">Hari</div>
-        </div>
-        <div class="time-segment" aria-live="polite">
-          <div class="time-value" id="hours">--</div>
-          <div class="time-label">Jam</div>
-        </div>
-        <div class="time-segment" aria-live="polite">
-          <div class="time-value" id="minutes">--</div>
-          <div class="time-label">Menit</div>
-        </div>
-        <div class="time-segment" aria-live="polite">
-          <div class="time-value" id="seconds">--</div>
-          <div class="time-label">Detik</div>
-        </div>
-      </div>
-
-      <div>
-        <div class="meta">Sisa jam (desimal): <strong id="hoursDecimal">--</strong> jam</div>
-      </div>
-
-      <div class="footer">Durasi total, progress, dan waktu mulai/selesai ditentukan oleh rentang waktu event.</div>
-    </div>
-
-    <div class="side">
-      <div>
-        <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
-          <div class="meta">Progress</div>
-          <div class="percent" id="percentText">--%</div>
-        </div>
-        <div class="progress-wrap" aria-hidden="true" style="margin-top:8px;">
-          <div id="progressBar" class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-        </div>
-      </div>
-
-      <div class="dates" style="margin-top:6px;">
-        <div class="date-item">
-          <div class="date-label">Mulai</div>
-          <div class="date-value" id="startText">24 Sep 2025, 23:00 WIB</div>
-        </div>
-        <div class="date-item">
-          <div class="date-label">Selesai</div>
-          <div class="date-value" id="endText">28 Sep 2025, 08:00 WIB</div>
-        </div>
-        <div class="date-item">
-          <div class="date-label">Durasi total</div>
-          <div class="date-value" id="durationText">-- jam</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-<script>
-/*
-  Countdown otomatis antara:
-    Start: 2025-09-24 23:00 WIB (UTC+7)
-    End:   2025-09-28 08:00 WIB (UTC+7)
-
-  Catatan: Javascript membuat Date dengan offset +07:00 supaya konsisten WIB.
-*/
-
-(function(){
-  // Buat Date objek dengan timezone offset +07:00 (WIB)
-  const start = new Date("2025-09-24T23:00:00+07:00");
-  const end   = new Date("2025-09-28T08:00:00+07:00");
-
-  // Elemen UI
-  const elDays = document.getElementById('days');
-  const elHours = document.getElementById('hours');
-  const elMinutes = document.getElementById('minutes');
-  const elSeconds = document.getElementById('seconds');
-  const elHoursDecimal = document.getElementById('hoursDecimal');
-  const elPercent = document.getElementById('percentText');
-  const elProgress = document.getElementById('progressBar');
-  const elStartText = document.getElementById('startText');
-  const elEndText = document.getElementById('endText');
-  const elDurationText = document.getElementById('durationText');
-
-  // Hitung total durasi ms (konstan)
-  const totalMs = Math.max(0, end - start);
-
-  // Format helper
-  function pad(n){ return String(n).padStart(2,'0'); }
-
-  function msToDhms(ms){
-    ms = Math.max(0, Math.floor(ms));
-    const s = Math.floor(ms / 1000);
-    const days = Math.floor(s / 86400);
-    const hours = Math.floor((s % 86400) / 3600);
-    const minutes = Math.floor((s % 3600) / 60);
-    const seconds = s % 60;
-    return { days, hours, minutes, seconds, totalSeconds: s };
-  }
-
-  function updateUI() {
-    const now = new Date();
-    // compute remaining & elapsed clamped
-    const remainingMs = Math.max(0, end - now);
-    const elapsedMs = Math.max(0, Math.min(totalMs, now - start));
-    const pct = totalMs > 0 ? (elapsedMs / totalMs) * 100 : 100;
-
-    const d = msToDhms(remainingMs);
-    elDays.textContent = d.days;
-    elHours.textContent = pad(d.hours);
-    elMinutes.textContent = pad(d.minutes);
-    elSeconds.textContent = pad(d.seconds);
-
-    // jam desimal tersisa (mis. 2.75 jam)
-    const hoursDecimal = (remainingMs / 3600 / 1000);
-    elHoursDecimal.textContent = (hoursDecimal).toFixed(2);
-
-    // progress
-    const pctRounded = Math.max(0, Math.min(100, Math.round(pct)));
-    elPercent.textContent = pctRounded + '%';
-    elProgress.style.width = pctRounded + '%';
-    elProgress.setAttribute('aria-valuenow', pctRounded);
-
-    // duration text
-    const totalHours = (totalMs / 3600 / 1000);
-    elDurationText.textContent = totalHours.toFixed(2) + ' jam';
-
-    // show start/end formatted (already static but display in nice format)
-    elStartText.textContent = formatLocalWIB(start);
-    elEndText.textContent = formatLocalWIB(end);
-
-    // If before start -> show "Belum dimulai", progress 0, remaining = total
-    if (now < start) {
-      elPercent.textContent = '0%';
-      elProgress.style.width = '0%';
-      // remaining should be totalMs
-      const pre = msToDhms(totalMs);
-      elDays.textContent = pre.days;
-      elHours.textContent = pad(pre.hours);
-      elMinutes.textContent = pad(pre.minutes);
-      elSeconds.textContent = pad(pre.seconds);
-      elHoursDecimal.textContent = (totalMs / 3600 / 1000).toFixed(2);
-    }
-
-    // If past end -> show zeros and 100% complete
-    if (now >= end) {
-      elDays.textContent = '0';
-      elHours.textContent = '00';
-      elMinutes.textContent = '00';
-      elSeconds.textContent = '00';
-      elHoursDecimal.textContent = '0.00';
-      elPercent.textContent = '100%';
-      elProgress.style.width = '100%';
-      // optional: add subtle highlight to indicate finished
-      elProgress.style.background = 'linear-gradient(90deg,#4caf50,#2e7d32)';
-    }
-  }
-
-  function formatLocalWIB(date) {
-    // Buat string '24 Sep 2025, 23:00 WIB' (menggunakan UTC+7 display)
-    // Kita dapat menggunakan opsi Intl dengan timeZone 'Asia/Jakarta'
-    try {
-      const opts = { day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit', hour12:false, timeZone:'Asia/Jakarta' };
-      // Example output: "24 Sep 2025, 23:00"
-      const fmt = new Intl.DateTimeFormat('id-ID', opts).format(date);
-      return fmt.replace(',', ',') + ' WIB';
-    } catch (e) {
-      // Fallback manual
-      const days = ["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agt","Sep","Okt","Nov","Des"];
-      const d = date;
-      return `${String(d.getDate()).padStart(2,'0')} ${days[d.getMonth()]} ${d.getFullYear()}, ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')} WIB`;
-    }
-  }
-
-  // Update rutin tiap 250ms agar detik dan progress terasa halus
-  updateUI();
-  const intervalId = setInterval(updateUI, 250);
-
-  // cleanup on unload
-  window.addEventListener('beforeunload', () => clearInterval(intervalId));
-
-})();
-</script>
-
-</body>
-</html>
+  /* responsive */
+  @media (max-width:760px){
+    .card { flex-direction:column; max-width:520px; }
+    .right { width
 
 
   <!-- ===== FOOTER ===== -->
