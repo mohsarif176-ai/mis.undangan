@@ -1,0 +1,9 @@
+undangan/
+├─ index.html
+├─ style.css
+└─ img/
+   ├─ floral-left.png   (ornamen kiri)
+   ├─ floral-right.png  (ornamen kanan)
+   ├─ couple1.jpg       (foto pasangan jalan)
+   ├─ couple2.jpg       (foto close up)
+   ├─ icon-map.png      (ikon peta)
