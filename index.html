@@ -1,172 +1,80 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Undangan Pernikahan — Saepul & Ayu</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg: #fbf7f3;
-      --card:#ffffff;
-      --accent:#b08957; /* gold-ish */
-      --muted:#81756b;
-      --max-width:900px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:var(--bg);font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Undangan Pernikahan — Saepul & Ayu</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg: #fbf7f3;
+--card:#ffffff;
+--accent:#b08957; /* gold-ish */
+--muted:#81756b;
+--max-width:900px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
 
-    /* page container */
-    .invitation{
-      max-width:var(--max-width);
-      margin:24px auto;
-      background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.95));
-      border-radius:14px;
-      overflow:hidden;
-      box-shadow:0 20px 40px rgba(31,31,31,0.08);
-    }
 
-    header{padding:56px 28px 12px;text-align:center;position:relative;background:transparent}
-    /* decorative floral (inline SVG) positioned */
-    header .floral{
-      position:absolute;top:18px;left:18px;opacity:0.7;width:120px;height:120px;pointer-events:none}
-    header .floral.right{left:auto;right:18px;transform:rotate(180deg)}
+/* page container */
+.invitation{
+max-width:var(--max-width);
+margin:24px auto;
+background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.95));
+border-radius:14px;
+overflow:hidden;
+box-shadow:0 20px 40px rgba(31,31,31,0.08);
+}
 
-    .kecil{font-size:14px;color:var(--muted);letter-spacing:0.12em}
-    .title{font-family:'Playfair Display', serif;font-size:20px;color:var(--muted);margin:14px 0}
-    .names{font-family:'Great Vibes', cursive;color:var(--accent);font-size:56px;margin:8px 0;line-height:0.9;text-shadow:0 2px 0 rgba(0,0,0,0.03)}
-    .date{font-family:'Playfair Display', serif;color:var(--muted);margin-top:6px}
 
-    /* image sections */
-    .hero{
-      display:block;width:100%;height:420px;object-fit:cover;display:block
-    }
+header{padding:56px 28px 12px;text-align:center;position:relative;background:transparent}
+/* decorative floral (inline SVG) positioned */
+header .floral{
+position:absolute;top:18px;left:18px;opacity:0.7;width:120px;height:120px;pointer-events:none}
+header .floral.right{left:auto;right:18px;transform:rotate(180deg)}
 
-    .section{padding:44px 36px;text-align:center;background:var(--card)}
-    .parents{font-family:'Playfair Display', serif;color:var(--accent);font-size:30px;margin:10px 0}
-    .sub{font-size:13px;color:var(--muted);margin-top:6px}
-    .amp{font-size:28px;margin:18px 0;color:var(--muted)}
 
-    .decor-line{height:1px;background:linear-gradient(90deg, transparent, #dcd6d1, transparent);margin:28px 0}
+.kecil{font-size:14px;color:var(--muted);letter-spacing:0.12em}
+.title{font-family:'Playfair Display', serif;font-size:20px;color:var(--muted);margin:14px 0}
+.names{font-family:'Great Vibes', cursive;color:var(--accent);font-size:56px;margin:8px 0;line-height:0.9;text-shadow:0 2px 0 rgba(0,0,0,0.03)}
+.date{font-family:'Playfair Display', serif;color:var(--muted);margin-top:6px}
 
-    /* info card */
-    .info{
-      padding:34px 36px;background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(249,247,245,0.95));
-      text-align:center
-    }
-    .arabic{font-family: 'Playfair Display', serif;font-size:22px;color:#222}
-    .intro{max-width:720px;margin:12px auto;color:var(--muted);line-height:1.6}
-    .cta{display:flex;gap:20px;align-items:center;justify-content:center;margin-top:18px;flex-wrap:wrap}
-    .btn{background:var(--accent);color:#fff;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:600;box-shadow:0 8px 20px rgba(160,120,70,0.12);}
 
-    .time-grid{display:flex;justify-content:center;gap:28px;align-items:center;margin-top:16px}
-    .time-grid .col{min-width:120px}
-    .time-grid .big{font-family:'Playfair Display', serif;font-size:40px;color:#222}
-    .time-grid .muted{font-size:12px;color:var(--muted);letter-spacing:0.06em}
+/* image sections */
+.hero{
+display:block;width:100%;height:420px;object-fit:cover;display:block
+}
 
-    .map-note{font-size:13px;color:var(--muted);margin-top:8px}
 
-    .footer{padding:34px 24px;text-align:center}
-    .heart{font-size:22px;color:var(--muted);margin:14px 0}
-    .thanks{font-family:'Great Vibes',cursive;font-size:36px;color:var(--accent);margin:8px 0}
-    .terima{color:var(--muted);letter-spacing:0.12em}
+.section{padding:44px 36px;text-align:center;background:var(--card)}
+.parents{font-family:'Playfair Display', serif;color:var(--accent);font-size:30px;margin:10px 0}
+.sub{font-size:13px;color:var(--muted);margin-top:6px}
+.amp{font-size:28px;margin:18px 0;color:var(--muted)}
 
-    /* responsive */
-    @media (max-width:720px){
-      .names{font-size:40px}
-      .hero{height:320px}
-      .section{padding:28px}
-      .info{padding:26px 18px}
-      .time-grid{flex-direction:column}
-    }
 
-    /* small polish */
-    .shadow-card{box-shadow:0 10px 30px rgba(17,17,17,0.06);border-radius:10px;padding:18px}
-  </style>
-</head>
-<body>
-  <main class="invitation" role="main">
-    <header>
-      <!-- inline floral SVGs to mimic the design -->
-      <svg class="floral" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-        <g fill="none" stroke="#d9d2c8" stroke-width="2">
-          <path d="M10 160 C40 120, 60 120, 90 150"/>
-          <path d="M30 120 C60 80, 120 70, 150 100"/>
-          <circle cx="30" cy="30" r="8" fill="#efe8e0" stroke="none"/>
-        </g>
-      </svg>
-      <svg class="floral right" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-        <g fill="none" stroke="#d9d2c8" stroke-width="2">
-          <path d="M10 160 C40 120, 60 120, 90 150"/>
-          <path d="M30 120 C60 80, 120 70, 150 100"/>
-          <circle cx="30" cy="30" r="8" fill="#efe8e0" stroke="none"/>
-        </g>
-      </svg>
+.decor-line{height:1px;background:linear-gradient(90deg, transparent, #dcd6d1, transparent);margin:28px 0}
 
-      <div class="kecil">The wedding</div>
-      <h1 class="names" aria-label="Nama pengantin">Saepul &amp; Ayu Suryanah</h1>
-      <div class="date">Minggu, 28 September 2025</div>
-    </header>
 
-    <!-- top hero photo: replace file with your image named hero-top.jpg inside an assets folder -->
-    <img src="assets/hero-top.jpg" alt="Pasangan berjalan" class="hero" loading="lazy">
+/* info card */
+.info{
+padding:34px 36px;background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(249,247,245,0.95));
+text-align:center
+}
+.arabic{font-family: 'Playfair Display', serif;font-size:22px;color:#222}
+.intro{max-width:720px;margin:12px auto;color:var(--muted);line-height:1.6}
+.cta{display:flex;gap:20px;align-items:center;justify-content:center;margin-top:18px;flex-wrap:wrap}
+.btn{background:var(--accent);color:#fff;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:600;box-shadow:0 8px 20px rgba(160,120,70,0.12);}
 
-    <section class="section">
-      <div class="parents">Saepul Subur / Jawa</div>
-      <div class="sub">Putra dari Bpk. H. Sanusi dan Ibu Sartiah "Rancaillat"</div>
 
-      <div class="amp">&amp;</div>
+.time-grid{display:flex;justify-content:center;gap:28px;align-items:center;margin-top:16px}
+.time-grid .col{min-width:120px}
+.time-grid .big{font-family:'Playfair Display', serif;font-size:40px;color:#222}
+.time-grid .muted{font-size:12px;color:var(--muted);letter-spacing:0.06em}
 
-      <div class="parents">Ayu Suryanah / Ayu</div>
-      <div class="sub">Putra dari Bpk. Misra (Alm) dan Ibu Kayah "Gerobogan"</div>
-    </section>
 
-    <!-- bottom hero photo -->
-    <img src="assets/hero-bottom.jpg" alt="Pasangan" class="hero" loading="lazy">
+.map-note{font-size:13px;color:var(--muted);margin-top:8px}
 
-    <section class="info">
-      <div class="arabic">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
-      <p class="intro">Assalamu'alaikum Wr. Wb<br>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan resepsi pernikahan kami yang insya Allah akan dilaksanakan pada:</p>
 
-      <div class="shadow-card">
-        <div style="font-size:12px;color:var(--muted);">AKAD &amp; RESEPSI</div>
-        <div class="time-grid">
-          <div class="col">
-            <div class="muted">MINGGU, <br>SEPTEMBER 2025</div>
-          </div>
-          <div class="col">
-            <div class="big">28</div>
-          </div>
-          <div class="col">
-            <div class="muted">09.00<br>S/D SELESAI</div>
-          </div>
-        </div>
-        <div class="map-note">Di kediaman mempelai Wanita<br>Kp. Gerobogan RT. 03 Rw. 03 Des. Sukamulya Kec. Sukamulya Kab. Tangerang - Banten</div>
-
-        <div class="cta">
-          <!-- replace the href with actual google maps link to the address -->
-          <a class="btn" href="#" onclick="openMap(event)">Buka Denah Lokasi</a>
-        </div>
-      </div>
-    </section>
-
-    <div class="decor-line" aria-hidden></div>
-
-    <footer class="footer">
-      <div class="heart">♥</div>
-      <div class="thanks">Mohon Doa Dan Restu</div>
-      <div class="terima">Terima Kasih.</div>
-    </footer>
-  </main>
-
-  <script>
-    function openMap(e){
-      e.preventDefault();
-      // TODO: ganti URL di bawah dengan link Google Maps lokasi Anda
-      const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=Kp.+Gerobogan+Tangerang';
-      window.open(mapsUrl, '_blank');
-    }
-  </script>
-</body>
-</html>
+.footer{padding:34px 24px;text-align:center}
