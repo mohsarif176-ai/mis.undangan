@@ -1,36 +1,126 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Undangan Pernikahan</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Undangan - Saepul & Ayu</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ===== Halaman Awal ===== -->
-  <section id="landing">
-    <div class="landing-box">
-      <h2>The Wedding of</h2>
-      <h1>Saepul & Ayu Suryanah</h1>
-      <p>Minggu, 28 September 2025</p>
-      <button id="openBtn">Buka Undangan</button>
-    </div>
-  </section>
+  <!-- LANDING / JENDELA AWAL -->
+  <div id="landing" role="dialog" aria-modal="true">
+    <div class="landing-card">
+      <h3 class="small-title">The Wedding</h3>
+      <h1 class="names">Saepul &amp; Ayu Suryanah</h1>
+      <p class="date">Minggu, 28 September 2025</p>
 
-  <!-- ===== Isi Undangan ===== -->
-  <section id="main" class="hidden">
-    <div class="scroll-container">
-      <img src="img/undangan.png" alt="Undangan Pernikahan" class="undangan-img">
+      <div class="landing-actions">
+        <button id="openBtn" class="btn primary">Buka Undangan</button>
+        <button id="viewPreview" class="btn ghost">Lihat Pratinjau</button>
+      </div>
+
+      <p class="note">Klik "Buka Undangan" untuk melihat seluruh undangan.</p>
     </div>
-  </section>
+  </div>
+
+  <!-- MAIN (ISI UNDANGAN) -->
+  <main id="main" class="hidden" tabindex="-1">
+    <header class="topbar">
+      <button id="backBtn" class="icon-btn" title="Kembali ke Pembuka">⟵</button>
+      <div class="top-title">Saepul &amp; Ayu</div>
+      <button id="openMapBtn" class="map-btn">Buka Denah Lokasi</button>
+    </header>
+
+    <section class="invitation-wrap">
+      <!-- GANTI PATH GAMBAR SESUAI NAMA FILE ANDA -->
+      <img src="img/undangan.png" alt="Undangan Saepul & Ayu (gambar panjang)" class="invitation-img">
+    </section>
+
+    <footer class="footer-note">
+      <p>Mohon doa dan restu. &nbsp;•&nbsp; Terima kasih.</p>
+    </footer>
+  </main>
+
+  <!-- OPTIONAL: Modal Denah (contoh sederhana) -->
+  <div id="mapModal" class="modal hidden" role="dialog" aria-modal="true" aria-label="Denah lokasi">
+    <div class="modal-card">
+      <button class="modal-close" id="closeMap">✕</button>
+      <h4>Denah Lokasi</h4>
+      <p>Alamat: Kp. Gerobogan RT.03 RW.03 Desa Sukamulya, Kec. Sukamulya, Kab. Tangerang - Banten</p>
+      <!-- Jika ingin menanamkan Google Maps, ganti kode berikut dengan iframe maps Anda -->
+      <div class="map-placeholder">
+        <p>Tempat untuk menaruh peta (iframe Google Maps).</p>
+      </div>
+      <a href="https://www.google.com/maps" target="_blank" rel="noopener" class="btn primary">Buka Google Maps</a>
+    </div>
+  </div>
 
 <script>
-  // Fungsi tombol pembuka
-  document.getElementById('openBtn').addEventListener('click', () => {
-    document.getElementById('landing').classList.add('hidden');
-    document.getElementById('main').classList.remove('hidden');
-    window.scrollTo(0, 0);
+  // Elemen
+  const landing = document.getElementById('landing');
+  const openBtn = document.getElementById('openBtn');
+  const viewPreview = document.getElementById('viewPreview');
+  const main = document.getElementById('main');
+  const backBtn = document.getElementById('backBtn');
+
+  const mapModal = document.getElementById('mapModal');
+  const openMapBtn = document.getElementById('openMapBtn');
+  const closeMap = document.getElementById('closeMap');
+
+  // Buka undangan (sambil sembunyikan landing)
+  openBtn.addEventListener('click', () => {
+    landing.classList.add('hidden');
+    main.classList.remove('hidden');
+    // fokus ke konten utama untuk aksesibilitas
+    main.focus();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Pratinjau sederhana (scroll ke gambar tanpa tutup landing)
+  viewPreview.addEventListener('click', () => {
+    // buka main sekilas (overlay) tapi tetap biarkan landing visible
+    const img = document.querySelector('.invitation-img');
+    if (img) {
+      const w = window.open('', '_blank');
+      w.document.write('<title>Pratinjau Undangan</title>');
+      w.document.write('<meta name="viewport" content="width=device-width,initial-scale=1">');
+      w.document.write('<style>body{margin:0}img{display:block;width:100%;height:auto}</style>');
+      w.document.write('<img src="' + img.src + '" alt="Pratinjau Undangan">');
+      w.document.close();
+    }
+  });
+
+  // Kembali ke landing
+  backBtn.addEventListener('click', () => {
+    main.classList.add('hidden');
+    landing.classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Denah lokasi modal
+  openMapBtn.addEventListener('click', () => {
+    mapModal.classList.remove('hidden');
+  });
+  closeMap.addEventListener('click', () => {
+    mapModal.classList.add('hidden');
+  });
+
+  // Tutup modal saat klik di luar
+  mapModal.addEventListener('click', (e) => {
+    if (e.target === mapModal) mapModal.classList.add('hidden');
+  });
+
+  // Keyboard: Esc untuk tutup modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      mapModal.classList.add('hidden');
+    }
   });
 </script>
 
