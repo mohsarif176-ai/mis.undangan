@@ -1,13 +1,11 @@
 wedding/
-│
 ├─ index.html
-├─ style.css
-├─ img
-│   ├─ bg-floral-left.png
-│   ├─ bg-floral-right.png
-│   ├─ couple1.jpg
-│   ├─ couple2.jpg
-│   └─ icon-map.png
-│
-└─ audio
-    └─ wedding-music.mp3
+├─ img/
+│  ├─ bg-floral-left.png
+│  ├─ bg-floral-right.png
+│  ├─ couple1.jpg
+│  ├─ couple2.jpg
+│  ├─ icon-map.png
+│  └─ paper-top.png
+└─ audio/
+   └─ wedding-music.mp3
