@@ -1,76 +1,43 @@
 <!doctype html>
-</a>
-</section>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pernikahan — Landing</title>
 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-<!-- Countdown card -->
-<section class="countdown-card" aria-label="Countdown menuju 28 Sep 2025 08:00 WIB">
-<div class="countdown-left">
-<div class="count-title">Waktu Tersisa</div>
-<div class="count-sub">Dari sekarang hingga 28 Sep 2025, 08:00 WIB</div>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="landing">
+    <header class="landing-hero">
+      <img src="img/bg-floral-left.png" alt="" class="floral floral-left" aria-hidden="true">
+      <img src="img/bg-floral-right.png" alt="" class="floral floral-right" aria-hidden="true">
 
+      <p class="the-wedding">The wedding of</p>
 
-<div class="count-grid" aria-live="polite" aria-atomic="true">
-<div class="count-seg">
-<div class="count-num" id="cd-days">--</div>
-<div class="count-label">Hari</div>
-</div>
-<div class="count-seg">
-<div class="count-num" id="cd-hours">--</div>
-<div class="count-label">Jam</div>
-</div>
-<div class="count-seg">
-<div class="count-num" id="cd-minutes">--</div>
-<div class="count-label">Menit</div>
-</div>
-<div class="count-seg">
-<div class="count-num" id="cd-seconds">--</div>
-<div class="count-label">Detik</div>
-</div>
-</div>
-</div>
+      <div class="logo-wrap" aria-hidden="true">
+        <img src="img/hero-logo.png" alt="" class="logo-main">
+      </div>
 
+      <h1 class="hero-name">Saepul &amp; Ayu Suryanah</h1>
+      <p class="hero-date">Minggu, 28 September 2025</p>
 
-<div class="countdown-right">
-<div>
-<div class="progress-top">
-<div class="progress-label">Progress</div>
-<div class="progress-percent" id="cd-percent">--%</div>
-</div>
-<div class="progress-wrap" aria-hidden="true">
-<div id="cd-progress" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-</div>
+      <div class="cta-wrap">
+        <a class="btn-primary" href="mail.html">Open Mail</a>
+      </div>
+    </header>
 
+    <footer class="landing-footer">
+      <p class="small muted">Mohon Doa dan Restu • Undangan Digital</p>
+    </footer>
+  </main>
 
-<div class="count-meta">
-<div>Durasi total: <strong id="cd-total-hours">--</strong> jam</div>
-<div>Sisa jam (desimal): <strong id="cd-hrs-dec">--</strong> jam</div>
-</div>
-</div>
-</section>
+  <!-- Shared audio (dipakai juga di mail.html) -->
+  <audio id="bg-music" src="audio/wedding-music.mp3" loop preload="auto"></audio>
 
-
-<footer class="footer">
-<h3>Mohon Doa dan Restu</h3>
-<p class="thanks">Terima Kasih</p>
-<div class="contact">Penggobang • Arif Lufi • 0851-4350-761</div>
-</footer>
-</div>
-
-
-<!-- global audio (sama file audio) -->
-<audio id="bg-music" src="audio/wedding-music.mp3" loop preload="auto"></audio>
-
-
-<!-- music controls bar (terlihat di bawah) -->
-<div class="music-bar" role="region" aria-label="Kontrol musik latar">
-<button id="musicToggle" title="Play/Pause Musik" aria-pressed="false">⏵︎</button>
-<button id="musicMute" title="Mute/Unmute" aria-pressed="false">🔈</button>
-<div class="status" id="musicStatus">Musik berhenti</div>
-</div>
-
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
