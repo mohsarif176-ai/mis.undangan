@@ -3,402 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pernikahan Saepul & Ayu</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+  <title>Undangan Pernikahan Saepul & Ayu</title>
   <link rel="stylesheet" href="style.css">
-
-  <!-- Countdown specific styles (tambahan) -->
-  <style>
-  /* ===== Countdown Card (tambahkan ke head) ===== */
-  .countdown-card{
-    display:flex;
-    gap:18px;
-    align-items:stretch;
-    background:#ffffff;
-    border-radius:12px;
-    padding:16px;
-    box-shadow: 0 10px 28px rgba(6,18,46,0.06);
-    border: 1px solid rgba(10,20,40,0.04);
-    max-width:900px;
-    margin:18px auto; /* sesuaikan posisi */
-  }
-
-  .countdown-left{ flex:1; min-width:0; }
-  .count-title{ font-weight:700; font-size:16px; margin-bottom:4px; }
-  .count-sub{ color:#6b7280; font-size:13px; margin-bottom:10px; }
-
-  .count-grid{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-  }
-  .count-seg{
-    background:linear-gradient(180deg,#fff,#fbfdff);
-    border-radius:10px;
-    padding:12px 14px;
-    min-width:84px;
-    text-align:center;
-    box-shadow: 0 6px 18px rgba(6,10,30,0.04);
-    border:1px solid rgba(10,20,40,0.03);
-  }
-  .count-num{
-    font-size:20px; font-weight:800; letter-spacing:0.6px;
-  }
-  .count-label{ margin-top:6px; font-size:12px; color:#6b7280; font-weight:600; }
-
-  .countdown-right{
-    width:320px;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    justify-content:center;
-  }
-  .progress-top{ display:flex; justify-content:space-between; align-items:center; }
-  .progress-label{ font-size:13px; color:#6b7280; font-weight:700; }
-  .progress-percent{ font-weight:800; color:#1657ff; }
-
-  .progress-wrap{
-    height:14px;
-    background:#eef6ff;
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
-  }
-  .progress-bar{
-    height:100%;
-    width:0%;
-    background: linear-gradient(90deg,#1657ff,#57a6ff);
-    transition: width 400ms linear;
-  }
-
-  .count-meta{ font-size:13px; color:#374151; display:flex; flex-direction:column; gap:4px; }
-
-  /* responsive */
-  @media (max-width:760px){
-    .countdown-card{ flex-direction:column; width:100%; padding:14px; }
-    .countdown-right{ width:100%; }
-    .count-seg{ min-width:64px; padding:10px 8px; }
-  }
-
-  /* ===== Floating music control ===== */
-  #music-control{
-    position:fixed;
-    right:18px;
-    bottom:18px;
-    display:flex;
-    gap:8px;
-    align-items:center;
-    background:rgba(255,255,255,0.88);
-    backdrop-filter: blur(6px);
-    padding:8px;
-    border-radius:999px;
-    box-shadow:0 10px 30px rgba(6,18,46,0.08);
-    z-index:9999;
-  }
-  #music-control button{
-    border:none;
-    background:transparent;
-    font-size:18px;
-    cursor:pointer;
-    padding:6px;
-    border-radius:50%;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-  }
-  #music-control button:hover{ background:rgba(0,0,0,0.06); }
-  #music-control .needs-action{ animation: pulse 1.4s infinite; }
-  @keyframes pulse{ 0%{ transform:scale(1); } 50%{ transform:scale(1.06); } 100%{ transform:scale(1); } }
-
-  /* small accessible label (visually hidden) */
-  .visually-hidden { position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
-  </style>
 </head>
 <body>
-
-  <!-- ===== HERO ===== -->
-  <header class="hero">
-    <img src="img/bg-floral-left.png" alt="" class="floral floral-left">
-    <img src="img/bg-floral-right.png" alt="" class="floral floral-right">
-    <p class="logout">Log out</p>
-    <p class="subtitle">The Wedding of</p>
-    <h1 class="couple-name">Saepul &amp; Ayu Suryanah</h1>
-    <p class="date">Minggu, 28 September 2025</p>
-  </header>
-
- 
-
-  <!-- ===== PHOTO 1 ===== -->
-  <section class="photo">
-    <img src="img/cincin saepul.jpg" alt="cincin saepul.jpg" class="photo-img">
-  </section>
-
-  <!-- ===== PARENTS ===== -->
-  <section class="parents">
-    <div class="parent-box">
-      <h2 class="name">Saepul Subur / Jawa</h2>
-      <p>Putra dari Bpk. H. Sanusi & Ibu Sariah “Rancailat”</p>
-    </div>
-    <span class="and">&amp;</span>
-    <div class="parent-box">
-      <h2 class="name">Ayu Suryanah / Ayu</h2>
-      <p>Putri dari Bpk. Misra (Alm) & Ibu Kayah “Gerobogan”</p>
-    </div>
-  </section>
-
-  <!-- ===== PHOTO 2 ===== -->
-  <section class="photo">
-    <img src="img/couple2.jpg" alt="Foto Pasangan 2" class="photo-img">
-  </section>
-
-  <!-- ===== INVITATION TEXT ===== -->
-  <section class="invitation">
-    <p class="arab">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
-    <p class="greeting">Assalamu’alaikum Wr. Wb</p>
-    <p class="desc">
-      Dengan memohon rahmat dan ridho Allah SWT,
-      kami bermaksud menyelenggarakan resepsi pernikahan kami
-      yang insya Allah akan dilaksanakan pada:
-    </p>
-
-    <div class="akad">
-      <h3>AKAD & RESEPSI</h3>
-      <div class="schedule">
-        <div class="date-box">
-          <span class="day">MINGGU</span>
-          <span class="number">28</span>
-          <span class="month">September 2025</span>
-        </div>
-        <div class="time-box">
-          <span class="time">09.00</span>
-          <span class="until">S/D SELESAI</span>
-        </div>
-      </div>
-    </div>
-
-    <p class="location">
-      Di kediaman mempelai wanita <br>
-      Kp. Gerobogan RT.03 RW.03 Desa Sukamulya,
-      Kec. Sukamulya, Kab. Tangerang – Banten
-    </p>
-
-    <a href="https://maps.app.goo.gl/NnTcy48Pr6MaV11GA"   target="_blank" rel="noopener noreferrer" class="btn-map">
-  <img src="img/icon-map.png" alt="Ikon peta"> Buka Denah Lokasi
-    </a>
-  </section>
-  
-  
-   <!-- ===== COUNTDOWN (DITEMPELKAN DI SINI) ===== -->
-  <section class="countdown-card" aria-label="Countdown menuju 28 Sep 2025 08:00 WIB">
-    <div class="countdown-left">
-      <div class="count-title">Waktu Tersisa</div>
-      <div class="count-sub">Mulai: hari ini (00:00 WIB) → Selesai: 28 Sep 2025, 08:00 WIB</div>
-
-      <div class="count-grid" aria-live="polite" aria-atomic="true">
-        <div class="count-seg">
-          <div class="count-num" id="cd-days">--</div>
-          <div class="count-label">Hari</div>
-        </div>
-        <div class="count-seg">
-          <div class="count-num" id="cd-hours">--</div>
-          <div class="count-label">Jam</div>
-        </div>
-        <div class="count-seg">
-          <div class="count-num" id="cd-minutes">--</div>
-          <div class="count-label">Menit</div>
-        </div>
-        <div class="count-seg">
-          <div class="count-num" id="cd-seconds">--</div>
-          <div class="count-label">Detik</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="countdown-right">
-      <div>
-        <div class="progress-top">
-          <div class="progress-label">Progress</div>
-          <div class="progress-percent" id="cd-percent">--%</div>
-        </div>
-        <div class="progress-wrap">
-          <div id="cd-progress" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-      </div>
-
-      <div class="count-meta">
-        <div>Durasi total: <strong id="cd-total-hours">--</strong> jam</div>
-        <div>Sisa jam (desimal): <strong id="cd-hrs-dec">--</strong> jam</div>
-      </div>
-    </div>
-  </section>
-  <!-- ===== AKHIR COUNTDOWN ===== -->
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <h3>Mohon Doa dan Restu</h3>
-    <p class="thanks">Terima Kasih</p>
-    <div class="contact">
-      <span>Penggobang</span> •
-      <span>Arif Lufi</span> •
-      <span>0851-4350-761</span>
-    </div>
-  </footer>
-
-  <!-- Audio & musik kontrol (letakkan file audio di folder `audio/wedding-music.mp3`) -->
+  <!-- Musik -->
   <audio id="bg-music" src="audio/wedding-music.mp3" loop preload="auto"></audio>
 
-  <div id="music-control" aria-label="Kontrol musik latar">
-    <button id="musicToggle" aria-pressed="false" title="Play/Pause musik">⏵︎</button>
-    <button id="musicMute" title="Mute/Unmute">🔈</button>
-    <span class="visually-hidden" id="musicStatus">Musik berhenti</span>
-  </div>
+  <section class="hero">
+    <div class="overlay">
+      <p class="the-wedding">The wedding</p>
+      <h1>Saepul &amp; Ayu Surganah</h1>
+      <p class="date">Minggu, 28 September 2025</p>
+      <button id="playMusic">💖 Putar Musik</button>
+    </div>
+  </section>
 
-  <!-- Countdown script (tempel sebelum </body>) -->
-  <script>
-  (function(){
-    // Helper: get Jakarta current time as Date object
-    function nowJakarta(){
-      return new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' }));
-    }
+  <section class="couple">
+    <img src="img/couple1.jpg" alt="Foto Pasangan" class="foto-utama">
+    <div class="nama">
+      <h2>Saepul Subur / Jawa</h2>
+      <p>Putra dari Bpk. H. Sanusi dan Ibu Sartiah “Rancailat”</p>
+      <h2>&</h2>
+      <h2>Ayu Suryanah / Ayu</h2>
+      <p>Putri dari Bpk. Misra (Alm) dan Ibu Kayah “Gerobogan”</p>
+    </div>
+  </section>
 
-    // Start = hari ini 00:00 WIB (Asia/Jakarta)
-    const now = nowJakarta();
-    const startOfTodayStr = new Intl.DateTimeFormat('sv', { timeZone: 'Asia/Jakarta', year:'numeric', month:'2-digit', day:'2-digit' }).format(now);
-    const start = new Date(startOfTodayStr + 'T00:00:00+07:00');
+  <section class="akad">
+    <img src="img/couple2.jpg" alt="Foto Couple 2" class="foto-utama">
+    <p class="bismillah">بسم الله الرحمن الرحيم</p>
+    <p>Assalamu’alaikum Wr. Wb<br>
+       Dengan memohon rahmat dan ridho Allah SWT<br>
+       Kami bermaksud menyelenggarakan resepsi pernikahan kami<br>
+       yang insya Allah akan dilaksanakan pada:</p>
 
-    // End fixed: 2025-09-28 08:00 WIB
-    const end = new Date('2025-09-28T08:00:00+07:00');
+    <div class="akad-info">
+      <h3>AKAD & RESEPSI</h3>
+      <h4>MINGGU, 28 SEPTEMBER 2025</h4>
+      <h4>09.00 WIB s/d Selesai</h4>
+      <p>Di kediaman mempelai Wanita<br>
+      Kp. Gerobogan RT.03 RW.03 Des. Sukamulya Kec. Sukamulya Kab. Tangerang-Banten</p>
+    </div>
 
-    // Elements
-    const elDays = document.getElementById('cd-days');
-    const elHours = document.getElementById('cd-hours');
-    const elMins = document.getElementById('cd-minutes');
-    const elSecs = document.getElementById('cd-seconds');
-    const elPercent = document.getElementById('cd-percent');
-    const elProgress = document.getElementById('cd-progress');
-    const elTotalHours = document.getElementById('cd-total-hours');
-    const elHrsDec = document.getElementById('cd-hrs-dec');
+    <!-- Countdown -->
+    <div id="countdown" class="countdown"></div>
 
-    const totalMs = Math.max(0, end - start);
+    <div class="map">
+      <a href="https://goo.gl/maps/" target="_blank">
+        <img src="img/icon-map.png" alt="Map Icon"> Buka Denah Lokasi
+      </a>
+    </div>
+  </section>
 
-    function pad(n){ return String(n).padStart(2,'0'); }
-    function msToDhms(ms){
-      ms = Math.max(0, Math.floor(ms));
-      const s = Math.floor(ms/1000);
-      const days = Math.floor(s / 86400);
-      const hours = Math.floor((s % 86400) / 3600);
-      const minutes = Math.floor((s % 3600) / 60);
-      const seconds = s % 60;
-      return { days, hours, minutes, seconds, totalSeconds: s };
-    }
+  <footer>
+    <h2>Mohon Doa Dan Restu</h2>
+    <p>Terima Kasih.</p>
+  </footer>
 
-    // set total hours text if element exists
-    if(elTotalHours) elTotalHours.textContent = (totalMs / 3600000).toFixed(2);
-
-    function update(){
-      const now = nowJakarta();
-      const remainingMs = Math.max(0, end - now);
-      const dhms = msToDhms(remainingMs);
-
-      if(elDays) elDays.textContent = dhms.days;
-      if(elHours) elHours.textContent = pad(dhms.hours);
-      if(elMins) elMins.textContent = pad(dhms.minutes);
-      if(elSecs) elSecs.textContent = pad(dhms.seconds);
-
-      if(elHrsDec) elHrsDec.textContent = (remainingMs / 3600000).toFixed(2);
-
-      const elapsedMs = Math.max(0, Math.min(totalMs, now - start));
-      const pct = totalMs > 0 ? Math.round((elapsedMs / totalMs) * 100) : 100;
-      if(elPercent) elPercent.textContent = pct + '%';
-      if(elProgress) { elProgress.style.width = pct + '%'; elProgress.setAttribute('aria-valuenow', pct); }
-
-      if(now >= end){
-        if(elDays) elDays.textContent = '0';
-        if(elHours) elHours.textContent = '00';
-        if(elMins) elMins.textContent = '00';
-        if(elSecs) elSecs.textContent = '00';
-        if(elHrsDec) elHrsDec.textContent = '0.00';
-        if(elPercent) elPercent.textContent = '100%';
-        if(elProgress) { elProgress.style.width = '100%'; elProgress.style.background = 'linear-gradient(90deg,#16a34a,#059669)'; }
-      }
-
-      if(now < start){
-        const full = msToDhms(totalMs);
-        if(elDays) elDays.textContent = full.days;
-        if(elHours) elHours.textContent = pad(full.hours);
-        if(elMins) elMins.textContent = pad(full.minutes);
-        if(elSecs) elSecs.textContent = pad(full.seconds);
-        if(elPercent) elPercent.textContent = '0%';
-        if(elProgress) elProgress.style.width = '0%';
-      }
-    }
-
-    update();
-    const timer = setInterval(update, 250);
-    window.addEventListener('beforeunload', ()=> clearInterval(timer));
-  })();
-  </script>
-
-  <!-- Music script -->
-  <script>
-  (function(){
-    const audio = document.getElementById('bg-music');
-    const btn = document.getElementById('musicToggle');
-    const mute = document.getElementById('musicMute');
-    const status = document.getElementById('musicStatus');
-
-    // initial settings
-    audio.volume = 0.5;
-    audio.preload = 'auto';
-
-    // Try autoplay (may be blocked by browser)
-    audio.play().then(function(){
-      btn.textContent = '⏸';
-      btn.setAttribute('aria-pressed','true');
-      btn.classList.remove('needs-action');
-      if(status) status.textContent = 'Musik diputar';
-    }).catch(function(){
-      // autoplay blocked — invite user to click
-      btn.textContent = '⏵︎';
-      btn.setAttribute('aria-pressed','false');
-      btn.classList.add('needs-action');
-      btn.title = 'Klik untuk memutar musik';
-      if(status) status.textContent = 'Klik untuk memutar musik';
-    });
-
-    // Play/pause toggle
-    btn.addEventListener('click', function(){
-      if(audio.paused){
-        audio.play().then(function(){
-          btn.textContent = '⏸';
-          btn.setAttribute('aria-pressed','true');
-          btn.classList.remove('needs-action');
-          if(status) status.textContent = 'Musik diputar';
-        }).catch(function(){ /* ignore */ });
-      } else {
-        audio.pause();
-        btn.textContent = '⏵︎';
-        btn.setAttribute('aria-pressed','false');
-        if(status) status.textContent = 'Musik dijeda';
-      }
-    });
-
-    // Mute/unmute
-    mute.addEventListener('click', function(){
-      audio.muted = !audio.muted;
-      mute.textContent = audio.muted ? '🔇' : '🔈';
-      if(status) status.textContent = audio.muted ? 'Musik dimute' : 'Suara aktif';
-    });
-
-    // Update icons on audio events
-    audio.addEventListener('play', function(){ btn.textContent = '⏸'; btn.classList.remove('needs-action'); btn.setAttribute('aria-pressed','true'); if(status) status.textContent = 'Musik diputar'; });
-    audio.addEventListener('pause', function(){ btn.textContent = '⏵︎'; btn.setAttribute('aria-pressed','false'); if(status) status.textContent = 'Musik dijeda'; });
-
-  })();
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
