@@ -1,40 +1,87 @@
-/* script.js
-   - countdown menuju 2025-09-28 08:00 WIB (Asia/Jakarta)
-   - pengaturan musik (autoplay jika diizinkan, tombol play/pause + mute)
-*/
+// script.js
+// - Autoplay musik (jika browser izinkan) + play/pause + mute
+// - Countdown menuju 2025-09-28 08:00 WIB (Asia/Jakarta)
 
 (function(){
-  // Helper: current time in Asia/Jakarta as Date object
+  // ---------------- MUSIC
+  const audio = document.getElementById('bg-music');
+  // tombol mungkin hanya ada di mail.html
+  const playBtn = document.getElementById('musicToggle');
+  const muteBtn = document.getElementById('musicMute');
+  const statusEl = document.getElementById('musicStatus');
+
+  if(audio){
+    audio.volume = 0.5;
+    audio.preload = 'auto';
+
+    // coba autoplay
+    audio.play().then(() => {
+      if(playBtn) playBtn.textContent = '⏸';
+      if(statusEl) statusEl.textContent = 'Musik diputar';
+    }).catch(() => {
+      if(playBtn) playBtn.textContent = '⏵︎';
+      if(statusEl) statusEl.textContent = 'Klik play untuk memutar musik';
+    });
+
+    // event jika tombol ada
+    if(playBtn){
+      playBtn.addEventListener('click', () => {
+        if(audio.paused){
+          audio.play().then(()=> { playBtn.textContent='⏸'; if(statusEl) statusEl.textContent='Musik diputar'; }).catch(()=> { if(statusEl) statusEl.textContent='Gagal memutar'; });
+        } else {
+          audio.pause();
+          playBtn.textContent='⏵︎';
+          if(statusEl) statusEl.textContent='Musik dijeda';
+        }
+      });
+    }
+
+    if(muteBtn){
+      muteBtn.addEventListener('click', () => {
+        audio.muted = !audio.muted;
+        if(audio.muted){
+          muteBtn.textContent = '🔇';
+          if(statusEl) statusEl.textContent = 'Suara dimute';
+        } else {
+          muteBtn.textContent = '🔈';
+          if(statusEl) statusEl.textContent = audio.paused ? 'Musik dijeda' : 'Musik diputar';
+        }
+      });
+    }
+
+    audio.addEventListener('play', ()=> { if(playBtn) playBtn.textContent='⏸'; if(statusEl) statusEl.textContent='Musik diputar'; });
+    audio.addEventListener('pause', ()=> { if(playBtn) playBtn.textContent='⏵︎'; if(statusEl) statusEl.textContent='Musik dijeda'; });
+  }
+
+  // ---------------- COUNTDOWN (hanya jika elemen ada)
   function nowJakarta(){
     return new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' }));
   }
 
-  // Start of today (Jakarta) 00:00
-  const now = nowJakarta();
-  const startOfTodayStr = new Intl.DateTimeFormat('sv', { timeZone: 'Asia/Jakarta', year:'numeric', month:'2-digit', day:'2-digit' }).format(now);
-  const startOfToday = new Date(startOfTodayStr + 'T00:00:00+07:00');
+  const cdDays = document.getElementById('cd-days');
+  const cdHours = document.getElementById('cd-hours');
+  const cdMinutes = document.getElementById('cd-minutes');
+  const cdSeconds = document.getElementById('cd-seconds');
+  const cdPercent = document.getElementById('cd-percent');
+  const cdProgress = document.getElementById('cd-progress');
+  const cdTotalHours = document.getElementById('cd-total-hours');
+  const cdHrsDec = document.getElementById('cd-hrs-dec');
 
-  // Target: 28 Sep 2025 08:00 WIB
+  // target: 28 Sep 2025 08:00 WIB (UTC+7)
   const target = new Date('2025-09-28T08:00:00+07:00');
 
-  // Elements
-  const elDays = document.getElementById('cd-days');
-  const elHours = document.getElementById('cd-hours');
-  const elMins = document.getElementById('cd-minutes');
-  const elSecs = document.getElementById('cd-seconds');
-  const elPercent = document.getElementById('cd-percent');
-  const elProgress = document.getElementById('cd-progress');
-  const elTotalHours = document.getElementById('cd-total-hours');
-  const elHrsDec = document.getElementById('cd-hrs-dec');
+  // start-of-today in Jakarta (for progress baseline)
+  const now0 = nowJakarta();
+  const startOfTodayStr = new Intl.DateTimeFormat('sv', { timeZone: 'Asia/Jakarta', year:'numeric', month:'2-digit', day:'2-digit' }).format(now0);
+  const startOfToday = new Date(startOfTodayStr + 'T00:00:00+07:00');
 
-  // total ms from startOfToday to target (dipakai untuk progress)
   const totalMs = Math.max(0, target - startOfToday);
-  if(elTotalHours) elTotalHours.textContent = (totalMs / 3600000).toFixed(2);
+  if(cdTotalHours) cdTotalHours.textContent = (totalMs / 3600000).toFixed(2);
 
   function pad(n){ return String(n).padStart(2,'0'); }
   function msToDhms(ms){
     ms = Math.max(0, Math.floor(ms));
-    const s = Math.floor(ms/1000);
+    const s = Math.floor(ms / 1000);
     const days = Math.floor(s / 86400);
     const hours = Math.floor((s % 86400) / 3600);
     const minutes = Math.floor((s % 3600) / 60);
@@ -45,100 +92,30 @@
   function updateCountdown(){
     const now = nowJakarta();
     const remainingMs = Math.max(0, target - now);
-    const dhms = msToDhms(remainingMs);
+    const d = msToDhms(remainingMs);
 
-    if(elDays) elDays.textContent = dhms.days;
-    if(elHours) elHours.textContent = pad(dhms.hours);
-    if(elMins) elMins.textContent = pad(dhms.minutes);
-    if(elSecs) elSecs.textContent = pad(dhms.seconds);
+    if(cdDays) cdDays.textContent = d.days;
+    if(cdHours) cdHours.textContent = pad(d.hours);
+    if(cdMinutes) cdMinutes.textContent = pad(d.minutes);
+    if(cdSeconds) cdSeconds.textContent = pad(d.seconds);
+    if(cdHrsDec) cdHrsDec.textContent = (remainingMs / 3600000).toFixed(2);
 
-    if(elHrsDec) elHrsDec.textContent = (remainingMs / 3600000).toFixed(2);
-
-    // progress: elapsed from startOfToday to now relative to totalMs
-    const elapsedMs = Math.max(0, Math.min(totalMs, now - startOfToday));
-    const pct = totalMs > 0 ? Math.round((elapsedMs / totalMs) * 100) : 100;
-    if(elPercent) elPercent.textContent = pct + '%';
-    if(elProgress) { elProgress.style.width = pct + '%'; elProgress.setAttribute('aria-valuenow', pct); }
+    const elapsed = Math.max(0, Math.min(totalMs, now - startOfToday));
+    const pct = totalMs > 0 ? Math.round((elapsed / totalMs) * 100) : 100;
+    if(cdPercent) cdPercent.textContent = pct + '%';
+    if(cdProgress) { cdProgress.style.width = pct + '%'; cdProgress.setAttribute('aria-valuenow', pct); }
 
     if(now >= target){
-      if(elDays) elDays.textContent = '0';
-      if(elHours) elHours.textContent = '00';
-      if(elMins) elMins.textContent = '00';
-      if(elSecs) elSecs.textContent = '00';
-      if(elHrsDec) elHrsDec.textContent = '0.00';
-      if(elPercent) elPercent.textContent = '100%';
-      if(elProgress) { elProgress.style.width = '100%'; elProgress.style.background = 'linear-gradient(90deg,#16a34a,#059669)'; }
+      if(cdDays) cdDays.textContent='0';
+      if(cdHours) cdHours.textContent='00';
+      if(cdMinutes) cdMinutes.textContent='00';
+      if(cdSeconds) cdSeconds.textContent='00';
+      if(cdHrsDec) cdHrsDec.textContent='0.00';
+      if(cdPercent) cdPercent.textContent='100%';
+      if(cdProgress) { cdProgress.style.width='100%'; cdProgress.style.background='linear-gradient(90deg,#16a34a,#059669)'; }
     }
   }
 
-  updateCountdown();
-  const timer = setInterval(updateCountdown, 250);
-  window.addEventListener('beforeunload', ()=> clearInterval(timer));
-})();
+  if(cdDays) { updateCountdown(); setInterval(updateCountdown, 250); }
 
-/* Musik: play/pause, mute/unmute */
-(function(){
-  const audio = document.getElementById('bg-music');
-  const btn = document.getElementById('musicToggle');
-  const muteBtn = document.getElementById('musicMute');
-  const status = document.getElementById('musicStatus');
-
-  if(!audio || !btn || !muteBtn) return;
-
-  audio.volume = 0.5;
-  audio.preload = 'auto';
-
-  // coba autoplay (akan gagal di beberapa browser sampai interaksi)
-  audio.play().then(()=> {
-    btn.textContent = '⏸';
-    btn.setAttribute('aria-pressed','true');
-    status.textContent = 'Musik diputar';
-  }).catch(()=> {
-    btn.textContent = '⏵︎';
-    btn.setAttribute('aria-pressed','false');
-    status.textContent = 'Klik play untuk memutar musik';
-  });
-
-  btn.addEventListener('click', ()=>{
-    if(audio.paused){
-      audio.play().then(()=> {
-        btn.textContent = '⏸';
-        btn.setAttribute('aria-pressed','true');
-        status.textContent = 'Musik diputar';
-      }).catch(()=> { status.textContent = 'Tidak dapat memutar otomatis'; });
-    } else {
-      audio.pause();
-      btn.textContent = '⏵︎';
-      btn.setAttribute('aria-pressed','false');
-      status.textContent = 'Musik dijeda';
-    }
-  });
-
-  muteBtn.addEventListener('click', ()=>{
-    audio.muted = !audio.muted;
-    if(audio.muted){
-      muteBtn.textContent = '🔇';
-      muteBtn.setAttribute('aria-pressed','true');
-      status.textContent = 'Suara dimute';
-    } else {
-      muteBtn.textContent = '🔈';
-      muteBtn.setAttribute('aria-pressed','false');
-      status.textContent = audio.paused ? 'Musik dijeda' : 'Musik diputar';
-    }
-  });
-
-  audio.addEventListener('play', ()=> {
-    btn.textContent = '⏸';
-    btn.setAttribute('aria-pressed','true');
-    status.textContent = 'Musik diputar';
-  });
-  audio.addEventListener('pause', ()=> {
-    btn.textContent = '⏵︎';
-    btn.setAttribute('aria-pressed','false');
-    status.textContent = 'Musik dijeda';
-  });
-
-  // keyboard accessibility
-  btn.addEventListener('keyup', (e)=> { if(e.key === 'Enter' || e.key === ' ') btn.click(); });
-  muteBtn.addEventListener('keyup', (e)=> { if(e.key === 'Enter' || e.key === ' ') muteBtn.click(); });
 })();
