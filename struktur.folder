@@ -2,12 +2,12 @@ wedding/
 │
 ├─ index.html
 ├─ style.css
-├─ img/
+├─ img
 │   ├─ bg-floral-left.png
 │   ├─ bg-floral-right.png
 │   ├─ couple1.jpg
 │   ├─ couple2.jpg
 │   └─ icon-map.png
 │
-└─ audio/                ← folder audio
+└─ audio
     └─ wedding-music.mp3
