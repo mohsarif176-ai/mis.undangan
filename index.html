@@ -1,66 +1,76 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Undangan Pernikahan Saepul & Ayu</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- Musik -->
-  <audio id="bg-music" src="audio/wedding-music.mp3" loop preload="auto"></audio>
+<!doctype html>
+</a>
+</section>
 
-  <section class="hero">
-    <div class="overlay">
-      <p class="the-wedding">The wedding</p>
-      <h1>Saepul &amp; Ayu Surganah</h1>
-      <p class="date">Minggu, 28 September 2025</p>
-      <button id="playMusic">💖 Putar Musik</button>
-    </div>
-  </section>
 
-  <section class="couple">
-    <img src="img/couple1.jpg" alt="Foto Pasangan" class="foto-utama">
-    <div class="nama">
-      <h2>Saepul Subur / Jawa</h2>
-      <p>Putra dari Bpk. H. Sanusi dan Ibu Sartiah “Rancailat”</p>
-      <h2>&</h2>
-      <h2>Ayu Suryanah / Ayu</h2>
-      <p>Putri dari Bpk. Misra (Alm) dan Ibu Kayah “Gerobogan”</p>
-    </div>
-  </section>
+<!-- Countdown card -->
+<section class="countdown-card" aria-label="Countdown menuju 28 Sep 2025 08:00 WIB">
+<div class="countdown-left">
+<div class="count-title">Waktu Tersisa</div>
+<div class="count-sub">Dari sekarang hingga 28 Sep 2025, 08:00 WIB</div>
 
-  <section class="akad">
-    <img src="img/couple2.jpg" alt="Foto Couple 2" class="foto-utama">
-    <p class="bismillah">بسم الله الرحمن الرحيم</p>
-    <p>Assalamu’alaikum Wr. Wb<br>
-       Dengan memohon rahmat dan ridho Allah SWT<br>
-       Kami bermaksud menyelenggarakan resepsi pernikahan kami<br>
-       yang insya Allah akan dilaksanakan pada:</p>
 
-    <div class="akad-info">
-      <h3>AKAD & RESEPSI</h3>
-      <h4>MINGGU, 28 SEPTEMBER 2025</h4>
-      <h4>09.00 WIB s/d Selesai</h4>
-      <p>Di kediaman mempelai Wanita<br>
-      Kp. Gerobogan RT.03 RW.03 Des. Sukamulya Kec. Sukamulya Kab. Tangerang-Banten</p>
-    </div>
+<div class="count-grid" aria-live="polite" aria-atomic="true">
+<div class="count-seg">
+<div class="count-num" id="cd-days">--</div>
+<div class="count-label">Hari</div>
+</div>
+<div class="count-seg">
+<div class="count-num" id="cd-hours">--</div>
+<div class="count-label">Jam</div>
+</div>
+<div class="count-seg">
+<div class="count-num" id="cd-minutes">--</div>
+<div class="count-label">Menit</div>
+</div>
+<div class="count-seg">
+<div class="count-num" id="cd-seconds">--</div>
+<div class="count-label">Detik</div>
+</div>
+</div>
+</div>
 
-    <!-- Countdown -->
-    <div id="countdown" class="countdown"></div>
 
-    <div class="map">
-      <a href="https://goo.gl/maps/" target="_blank">
-        <img src="img/icon-map.png" alt="Map Icon"> Buka Denah Lokasi
-      </a>
-    </div>
-  </section>
+<div class="countdown-right">
+<div>
+<div class="progress-top">
+<div class="progress-label">Progress</div>
+<div class="progress-percent" id="cd-percent">--%</div>
+</div>
+<div class="progress-wrap" aria-hidden="true">
+<div id="cd-progress" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
 
-  <footer>
-    <h2>Mohon Doa Dan Restu</h2>
-    <p>Terima Kasih.</p>
-  </footer>
 
-  <script src="script.js"></script>
+<div class="count-meta">
+<div>Durasi total: <strong id="cd-total-hours">--</strong> jam</div>
+<div>Sisa jam (desimal): <strong id="cd-hrs-dec">--</strong> jam</div>
+</div>
+</div>
+</section>
+
+
+<footer class="footer">
+<h3>Mohon Doa dan Restu</h3>
+<p class="thanks">Terima Kasih</p>
+<div class="contact">Penggobang • Arif Lufi • 0851-4350-761</div>
+</footer>
+</div>
+
+
+<!-- global audio (sama file audio) -->
+<audio id="bg-music" src="audio/wedding-music.mp3" loop preload="auto"></audio>
+
+
+<!-- music controls bar (terlihat di bawah) -->
+<div class="music-bar" role="region" aria-label="Kontrol musik latar">
+<button id="musicToggle" title="Play/Pause Musik" aria-pressed="false">⏵︎</button>
+<button id="musicMute" title="Mute/Unmute" aria-pressed="false">🔈</button>
+<div class="status" id="musicStatus">Musik berhenti</div>
+</div>
+
+
+<script src="script.js"></script>
 </body>
 </html>
