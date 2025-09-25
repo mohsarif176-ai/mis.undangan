@@ -2,8 +2,8 @@
   --gold:#b8902f;
   --muted:#6b6b6b;
   --bg:#fbf9f6;
-  --card:#ffffff;
-  --maxWidth:980px;
+  --btn-bg:#bdbdbd;
+  --maxWidth:1100px;
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -14,80 +14,62 @@ body{
   color:#222;
   -webkit-font-smoothing:antialiased;
 }
-a{color:inherit;text-decoration:none}
 
-/* Landing */
-.landing{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px}
-.landing-hero{position:relative;padding:40px 18px}
-.floral{position:absolute;top:8px;width:140px;opacity:0.9;pointer-events:none}
-.floral-left{left:8px}
-.floral-right{right:8px}
-.the-wedding{font-family:"Playfair Display",serif;font-size:26px;color:var(--muted);margin-bottom:6px}
-.logo-main{width:260px;max-width:68vw}
-.hero-name{font-family:"Great Vibes",cursive;font-size:52px;color:var(--gold);margin:12px 0}
-.hero-date{font-family:"Playfair Display",serif;color:var(--muted);margin-bottom:14px}
-.btn-primary{display:inline-block;background:#bdbdbd;color:#1f1f1f;padding:14px 36px;border-radius:12px;font-weight:700;box-shadow:0 10px 30px rgba(0,0,0,0.06)}
-.landing-footer{margin-top:28px;color:var(--muted);font-size:13px}
+/* Landing layout */
+.landing{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:36px 20px;
+  gap:22px;
+  max-width:var(--maxWidth);
+  margin:0 auto;
+}
 
-/* Shared (mail page) */
-.wrap{max-width:var(--maxWidth);margin:0 auto;padding:28px}
-.hero{position:relative;padding:36px 18px 10px;text-align:center;border-radius:10px}
-.logout{position:absolute;right:12px;top:8px;font-size:13px;color:var(--muted);font-style:italic}
-.subtitle{font-family:"Playfair Display",serif;color:var(--muted);margin-bottom:6px}
-.couple-name{font-family:"Great Vibes",cursive;font-size:48px;color:var(--gold);margin:6px 0}
-.date{font-family:"Playfair Display",serif;color:var(--muted);font-size:14px}
+/* decorative florals */
+.floral{position:fixed;opacity:0.9;pointer-events:none}
+.floral-left{left:10px;top:6px;width:160px}
+.floral-right{right:10px;top:6px;width:160px}
 
-/* torn */
-.torn{height:36px;margin:18px 0;background-size:cover}
+/* hero */
+.hero{display:flex;flex-direction:column;align-items:center;gap:6px}
+.the-wedding{font-family:"Playfair Display",serif;font-size:22px;color:var(--muted);margin:0}
+.logo-main{width:300px;max-width:60vw}
+.hero-name{font-family:"Great Vibes",cursive;font-size:56px;color:var(--gold);margin:6px 0}
+.hero-date{font-family:"Playfair Display",serif;color:var(--muted);margin:0}
 
-/* photos */
-.photo{margin:12px 0}
-.photo-img{width:100%;border-radius:6px}
+/* menu / button */
+.home-menu{margin-top:10px}
+.enter-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  background:var(--btn-bg);
+  color:#1f1f1f;
+  padding:14px 34px;
+  border-radius:14px;
+  font-weight:700;
+  box-shadow:0 10px 30px rgba(0,0,0,0.06);
+  text-decoration:none;
+  transition:transform .18s ease, box-shadow .18s ease;
+  transform-origin:center;
+}
+.enter-btn:hover{ transform:translateY(-4px); box-shadow:0 18px 40px rgba(0,0,0,0.12); }
 
-/* parents */
-.parents{display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap;padding:20px;background:var(--card);border-radius:10px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(6,10,30,0.03)}
-.parent-box{flex:1 1 320px;text-align:center;padding:6px}
-.parent-box .name{font-family:"Playfair Display",serif;font-size:30px;color:var(--gold);margin:8px 0}
-.parent-box p{color:var(--muted);margin:0}
-
-/* invitation */
-.invitation{text-align:center;padding:22px}
-.arab{font-family:"Great Vibes",cursive;font-size:28px}
-.greeting{font-weight:600;color:var(--muted)}
-.desc{max-width:720px;margin:0 auto 12px}
-
-/* akad */
-.akad{display:flex;justify-content:center;gap:12px;align-items:center;flex-wrap:wrap;margin:18px 0}
-.date-box .number{font-family:"Playfair Display",serif;font-size:42px}
-.time-box .time{font-size:28px;font-weight:800}
-
-/* map button */
-.btn-map{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:28px;background:#fff;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(6,10,30,0.03)}
-.btn-map img{width:20px}
-
-/* countdown */
-.countdown-card{display:flex;gap:18px;align-items:stretch;background:var(--card);border-radius:12px;padding:14px;box-shadow:0 12px 30px rgba(6,10,30,0.04);border:1px solid rgba(0,0,0,0.04);margin:22px 0}
-.count-grid{display:flex;gap:8px;flex-wrap:wrap}
-.count-seg{padding:10px 14px;border-radius:10px;min-width:84px;text-align:center;background:linear-gradient(180deg,#fff,#fbfdff);box-shadow:0 6px 18px rgba(6,10,30,0.03)}
-.count-num{font-size:20px;font-weight:800}
-.count-label{font-size:12px;color:var(--muted);margin-top:6px}
-
-.progress-wrap{height:14px;background:#eef6ff;border-radius:10px;overflow:hidden}
-.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,#1657ff,#57a6ff);transition:width 400ms linear}
+/* icon */
+.enter-icon{width:22px;height:22px;display:block; color:#2d2d2d}
+.enter-text{font-family:"Playfair Display",serif;font-size:18px;letter-spacing:0.6px}
 
 /* footer */
-.footer{text-align:center;padding:24px;color:var(--muted)}
-.footer h3{font-family:"Great Vibes",cursive;font-size:28px;margin:6px 0}
-
-/* music bar */
-.music-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:12px;background:rgba(255,255,255,0.96);padding:10px 14px;border-radius:999px;display:flex;gap:10px;align-items:center;z-index:9999;border:1px solid rgba(0,0,0,0.04)}
-.music-bar button{font-size:18px;border:0;background:transparent;padding:8px;border-radius:8px;cursor:pointer}
-.music-bar .status{font-size:14px;color:var(--muted)}
+.landing-footer{margin-top:18px;color:var(--muted);font-size:13px}
 
 /* responsive */
-@media (max-width:760px){
-  .couple-name{font-size:40px}
-  .logo-main{width:200px}
-  .countdown-card{flex-direction:column}
-  .music-bar{bottom:8px;padding:8px 10px}
+@media (max-width:720px){
+  .hero-name{font-size:40px}
+  .logo-main{width:220px}
+  .enter-btn{padding:12px 22px}
+  .enter-text{font-size:16px}
 }
