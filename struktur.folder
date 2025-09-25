@@ -4,11 +4,11 @@ wedding-project/
 ├─ style.css
 ├─ script.js
 ├─ img/
-│  ├─ landing-photo.jpg
+│  ├─ bg1.jpg
+│  ├─ bg2.jpg
 │  ├─ bg-floral-left.png
 │  ├─ bg-floral-right.png
 │  ├─ hero-logo.png
-│  ├─ paper-top.png
-│  └─ icon-map.png
+│  └─ icon-maps.png
 └─ audio/
    └─ wedding-music.mp3
